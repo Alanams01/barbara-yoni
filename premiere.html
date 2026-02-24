@@ -91,7 +91,9 @@
         .mairie-deco {
             position: absolute; width: 140px; z-index: 10; pointer-events: none;
         }
-        .mairie-top-right { top: -45px; right: -25px; }
+        
+        /* ICI : Position remontée à -65px */
+        .mairie-top-right { top: -65px; right: -30px; }
         .mairie-bottom-left { bottom: -25px; left: -25px; }
 
         .lemon-icon {
@@ -281,10 +283,10 @@
 
             if (val === 'oui') {
                 qtyDiv.style.display = 'block';
-                if(input.value == 0) input.value = 1; // Valeur par défaut à 1 si oui
+                if(input.value == 0) input.value = 1; 
             } else {
                 qtyDiv.style.display = 'none';
-                input.value = 0; // Remise à 0 automatique si non
+                input.value = 0; 
             }
         }
     </script>
