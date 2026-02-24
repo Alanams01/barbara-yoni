@@ -88,26 +88,43 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
+        /* Mise en page épurée : Uniquement Famille X et Famille Y */
         .traditional-announcement {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            text-align: left;
-            font-size: 0.85rem;
-            line-height: 1.7;
             margin-bottom: 20px;
             color: var(--azure-blue); 
         }
 
-        .family-side p { margin-bottom: 2px; font-weight: 500; }
+        .family-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+
+        .family-side {
+            text-align: left;
+            font-family: var(--font-serif);
+        }
+
+        .family-side.right {
+            text-align: right;
+        }
+
+        .family-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            display: block;
+        }
 
         .announcement-text {
-            grid-column: 1 / -1;
             text-align: center;
-            margin: 25px 0 15px;
-            font-size: 0.88rem;
+            margin: 25px 0 20px;
+            font-size: 0.9rem;
             color: var(--azure-blue);
             line-height: 1.6;
+            font-style: italic;
         }
 
         .memorial-section-final {
@@ -209,13 +226,13 @@
                 <h3>Houppa & Soirée</h3>
                 
                 <div class="traditional-announcement">
-                    <div class="family-side">
-                        <p>Mme Josefa BIGNAMI</p>
-                        <p>M. Patrick BIGNAMI</p>
-                    </div>
-                    <div class="family-side" style="text-align: right;">
-                        <p>Mme Delphine ABOUCAYA</p>
-                        <p>M. Jacques ABOUCAYA</p>
+                    <div class="family-header">
+                        <div class="family-side">
+                            <span class="family-title">Famille Bignami</span>
+                        </div>
+                        <div class="family-side right">
+                            <span class="family-title">Famille Aboucaya</span>
+                        </div>
                     </div>
 
                     <div class="announcement-text">
@@ -240,7 +257,7 @@
                 </div>
 
                 <div class="memorial-section-final">
-                    En la mémoire de nos chers grands-parents<br>
+                    Pensée affectueuse pour nos grands-parents<br>
                     José PEREZ MORENTE, Renato BIGNAMI, Modesta BIGNAMI FRANZONI, Rolande TOUATI, Raoul ABOUCAYA.
                 </div>
             </div>
