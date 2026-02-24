@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoni & Barbara | Programme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #1E3A8A;
+            --lemon-yellow: #FFD700;
+            --soft-white: #FFFEFA;
+            --sky-blue: #F0F7FF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--royal-blue);
+            text-align: center;
+        }
+
+        header {
+            padding: 40px 20px;
+            background: white;
+            border-bottom: 5px double var(--lemon-yellow);
+        }
+
+        h1 { font-family: 'Great Vibes', cursive; font-size: 3rem; margin: 0; }
+        h2 { font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 2rem; margin-bottom: 20px; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* SECTIONS COMMUNES */
+        section { padding: 60px 20px; border-bottom: 1px solid #eee; }
+        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+
+        /* SECTION MAIRIE */
+        .mairie-box {
+            background-color: white;
+            border: 2px solid var(--royal-blue);
+            padding: 40px;
+            box-shadow: 10px 10px 0px var(--lemon-yellow);
+            margin-bottom: 40px;
+        }
+
+        /* SECTION HOUPPA */
+        .houppa-box {
+            background-color: var(--royal-blue);
+            color: white;
+            padding: 40px;
+            border: 2px solid var(--royal-blue);
+            box-shadow: 10px 10px 0px var(--lemon-yellow);
+        }
+        .houppa-box h2 { color: var(--lemon-yellow); }
+
+        .info-detail { font-size: 1.2rem; line-height: 1.8; }
+        .address { font-style: italic; opacity: 0.9; margin-top: 10px; }
+
+        /* FORMULAIRE RSVP */
+        .rsvp-section { background-color: var(--sky-blue); padding: 80px 20px; }
+        
+        .rsvp-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--royal-blue);
+            color: white;
+            border: none;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover { background-color: var(--lemon-yellow); color: var(--royal-blue); }
+
+        footer { padding: 40px; font-family: 'Cinzel', serif; font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yoni & Barbara</h1>
+        <p style="letter-spacing: 3px;">03 . 06 . 2026 | 07 . 06 . 2026</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="mairie">
+            <span class="icon">🏛️</span>
+            <div class="mairie-box">
+                <h2>Le Mariage Civil</h2>
+                <div class="info-detail">
+                    <p><strong>Mercredi 3 Juin 2026 à 16h00</strong></p>
+                    <p>Mairie de Saint Maurice</p>
+                    <p class="address">Place Charles de Gaulle, 94410 Saint-Maurice</p>
+                    <hr style="width: 50px; border: 1px solid var(--lemon-yellow); margin: 20px auto;">
+                    <p>La cérémonie sera suivie d'un<br><strong>Vin d'Honneur</strong> à Limeil-Brévannes</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="houppa">
+            <div class="houppa-box">
+                <h2>La Houppa</h2>
+                <div class="info-detail">
+                    <p><strong>Dimanche 7 Juin 2026 à 11h00</strong></p>
+                    <p>Pavillon d'Elsa</p>
+                    <p class="address">Quai de la Marne, 75019 Paris</p>
+                    <p style="margin-top: 20px; font-size: 1rem;">La cérémonie religieuse sera suivie de la réception et de la fête.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="rsvp-section" id="rsvp">
+        <span class="icon">✉️</span>
+        <h2>Confirmation</h2>
+        <p>Partagerez-vous ce moment avec nous ?</p>
+        <br>
+        <div class="rsvp-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>Nom et Prénom</label>
+                    <input type="text" name="name" required placeholder="Ex: Famille Levy">
+                </div>
+                
+                <div class="form-group">
+                    <label>Présence</label>
+                    <select name="presence" required>
+                        <option value="">Sélectionnez une option</option>
+                        <option value="civil">Présent à la Mairie (3 Juin)</option>
+                        <option value="houppa">Présent à la Houppa (7 Juin)</option>
+                        <option value="les-deux">Présent aux deux événements</option>
+                        <option value="absent">Hélas, je ne pourrai pas être présent</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre de personnes</label>
+                    <input type="number" name="guests" min="1" max="10" value="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Un petit mot pour nous ?</label>
+                    <textarea name="message" rows="4" placeholder="Régime alimentaire particulier, chanson préférée..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">ENVOYER MA RÉPONSE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>YONI (YEOSHOUA) & BARBARA (DEBORAH)</p>
+        <p>#DolceVita2026</p>
+    </footer>
+
+</body>
+</html>
