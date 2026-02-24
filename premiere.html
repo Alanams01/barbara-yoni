@@ -22,7 +22,6 @@
         html { scroll-behavior: smooth; }
 
         body {
-            /* FOND CARREAUX MAJOLIQUE (Identique à l'index) */
             background-color: #f0f0f0;
             background-image: 
                 radial-gradient(circle at 100% 150%, #fff 24%, var(--azure-blue) 25%, var(--azure-blue) 28%, #fff 29%, #fff 36%, var(--azure-blue) 36%, var(--azure-blue) 40%, transparent 40%, transparent),
@@ -34,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* NAVIGATION DOLCE VITA */
         nav {
             position: sticky; top: 0; width: 100%; z-index: 1000;
             background: rgba(255, 255, 255, 0.96);
@@ -55,7 +53,6 @@
             display: flex; flex-direction: column; gap: 40px; 
         }
 
-        /* CARDS STYLE INVITATION (Inspiré Eliah & Dov) */
         .card {
             position: relative; 
             padding: 60px 25px; 
@@ -63,20 +60,44 @@
             border: 1px solid var(--azure-blue); 
             text-align: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: visible;
         }
-        /* Double bordure dorée interne */
+
+        .story-banner {
+            width: calc(100% + 50px);
+            margin-left: -25px;
+            margin-top: -60px;
+            margin-bottom: 30px;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid var(--lemon-yellow);
+        }
+
+        .img-section {
+            width: 100%;
+            margin-top: -30px;
+            margin-bottom: 25px;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
         .card::after {
             content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
             border: 1px solid var(--lemon-yellow); pointer-events: none;
             opacity: 0.6;
         }
 
-        /* DÉCORATION CITRONS FLOTTANTS */
+        .mairie-deco {
+            position: absolute; width: 140px; z-index: 10; pointer-events: none;
+        }
+        .mairie-top-right { top: -45px; right: -25px; }
+        .mairie-bottom-left { bottom: -25px; left: -25px; }
+
         .lemon-icon {
             position: absolute; font-size: 2.5rem; z-index: 10;
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
         }
-        .lt { top: -20px; right: -15px; transform: rotate(15deg); }
         .lb { bottom: -20px; left: -15px; transform: rotate(-15deg); }
 
         h3 { 
@@ -92,7 +113,6 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
-        /* ÉVÉNEMENTS */
         .date-text { 
             font-family: var(--font-serif); font-size: 1.1rem; 
             font-weight: 700; letter-spacing: 2px; color: var(--azure-blue);
@@ -105,13 +125,21 @@
             letter-spacing: 2px; font-weight: 700; font-family: 'Montserrat', sans-serif;
         }
 
-        /* FORMULAIRE RSVP */
         form { text-align: left; margin-top: 20px; }
         .form-label { font-family: var(--font-serif); font-size: 0.7rem; color: var(--azure-blue); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: block;}
+        
         input, select, textarea { 
             width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd; 
             background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; margin-bottom: 20px; outline: none;
         }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+            -webkit-appearance: none; margin: 0;
+        }
+
         .btn-submit { 
             background: linear-gradient(135deg, #1A365D, var(--azure-blue)); 
             color: #fff; border: none; padding: 18px; width: 100%; 
@@ -130,15 +158,34 @@
 <body>
 
     <nav>
+        <a href="#histoire">Histoire</a>
         <a href="#mairie">Mairie</a>
         <a href="#houppa">Houppa</a>
         <a href="#confirmation">Réponses</a>
     </nav>
 
     <div class="main-wrapper">
-        
+        <div id="histoire" class="card reveal" style="overflow: hidden;">
+            <img src="haut-seul.png" class="story-banner" alt="Notre Histoire">
+            <div class="card-content">
+                <h3>Notre Histoire</h3>
+                <div class="divider"></div>
+                <p style="font-family: var(--font-script); font-size: 1.8rem; color: var(--azure-blue); line-height: 1.3; margin-bottom: 15px;">
+                    Tout a commencé à 15 ans…
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.6; color: #555; padding: 0 10px;">
+                    19 ans plus tard, après avoir grandi, beaucoup ri et partagé mille souvenirs, une chose n’a pas changé : l’envie de continuer l’aventure ensemble.
+                </p>
+                <div class="divider"></div>
+                <p style="font-family: var(--font-serif); letter-spacing: 2px; font-weight: 600; color: var(--azure-blue); text-transform: uppercase; font-size: 0.9rem;">
+                    Alors cette fois, c’est officiel :<br>on se dit oui !
+                </p>
+            </div>
+        </div>
+
         <div id="mairie" class="card reveal">
-            <div class="lemon-icon lt">🍋</div>
+            <img src="haut-droite1.png" class="mairie-deco mairie-top-right" alt="">
+            <img src="bas-gauche1.png" class="mairie-deco mairie-bottom-left" alt="">
             <div class="card-content">
                 <h3>Cérémonie Civile</h3>
                 <div class="couple-names">Yoni & Barbara</div>
@@ -158,9 +205,9 @@
         </div>
 
         <div id="houppa" class="card reveal">
+            <img src="houppa23.png" class="img-section" alt="Houppa">
             <div class="lemon-icon lb">🍋</div>
             <div class="card-content">
-                <img src="hebreu.png" alt="Mazal Tov" style="width: 140px; margin-bottom: 15px; filter: brightness(0) saturate(100%) invert(26%) sepia(48%) saturate(1832%) hue-rotate(193deg);">
                 <h3>Houppa & Soirée</h3>
                 <div class="couple-names">Yoni & Barbara</div>
                 <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Sont heureux de vous convier à la cérémonie :</p>
@@ -186,38 +233,28 @@
                 
                 <form id="rsvpForm">
                     <label class="form-label">Nom & Prénom *</label>
-                    <input type="text" name="nom" required placeholder="Ex: Famille Aboucaya">
+                    <input type="text" name="nom" required placeholder="Ex: David & Sarah Cohen">
                     
                     <label class="form-label">Présent à la Mairie ? *</label>
-                    <select name="mairie_presence" id="mairie_pres" onchange="toggleQty('mairie')" required>
+                    <select name="mairie_presence" id="mairie_pres" onchange="handlePresence('mairie')" required>
                         <option value="" disabled selected>Faites votre choix</option>
                         <option value="oui">Oui, avec joie</option>
                         <option value="non">Hélas, non</option>
                     </select>
                     <div id="mairie_qty" class="hidden-qty">
                         <label class="form-label">Nombre de personnes (Mairie)</label>
-                        <select name="mairie_nb">
-                            <option value="1">1 Personne</option>
-                            <option value="2">2 Personnes</option>
-                            <option value="3">3 Personnes</option>
-                            <option value="4">Plus</option>
-                        </select>
+                        <input type="number" name="mairie_nb" id="mairie_input" min="0" placeholder="0">
                     </div>
 
                     <label class="form-label">Présent à la Houppa ? *</label>
-                    <select name="houppa_presence" id="houppa_pres" onchange="toggleQty('houppa')" required>
+                    <select name="houppa_presence" id="houppa_pres" onchange="handlePresence('houppa')" required>
                         <option value="" disabled selected>Faites votre choix</option>
                         <option value="oui">Oui, avec joie</option>
                         <option value="non">Hélas, non</option>
                     </select>
                     <div id="houppa_qty" class="hidden-qty">
                         <label class="form-label">Nombre de personnes (Houppa)</label>
-                        <select name="houppa_nb">
-                            <option value="1">1 Personne</option>
-                            <option value="2">2 Personnes</option>
-                            <option value="3">3 Personnes</option>
-                            <option value="4">Plus</option>
-                        </select>
+                        <input type="number" name="houppa_nb" id="houppa_input" min="0" placeholder="0">
                     </div>
 
                     <label class="form-label">Un message pour les mariés</label>
@@ -237,9 +274,18 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        function toggleQty(type) {
+        function handlePresence(type) {
             const val = document.getElementById(type + '_pres').value;
-            document.getElementById(type + '_qty').style.display = (val === 'oui') ? 'block' : 'none';
+            const qtyDiv = document.getElementById(type + '_qty');
+            const input = document.getElementById(type + '_input');
+
+            if (val === 'oui') {
+                qtyDiv.style.display = 'block';
+                if(input.value == 0) input.value = 1; // Valeur par défaut à 1 si oui
+            } else {
+                qtyDiv.style.display = 'none';
+                input.value = 0; // Remise à 0 automatique si non
+            }
         }
     </script>
 </body>
