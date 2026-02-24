@@ -2,171 +2,185 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yoni & Barbara | 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-blue: #1E3A8A;
             --lemon-yellow: #FFD700;
-            --soft-white: #FFFEFA;
+            --med-blue: #1E3A8A;
+            --light-blue: #3B82F6;
+            --glass: rgba(0, 0, 0, 0.6);
         }
 
-        * { box-sizing: border-box; }
-
-        body, html {
+        /* Empêcher le rebond du scroll sur mobile */
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
+            width: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--soft-white);
-            overflow: hidden; /* Pour un look application/carte postale */
+            overflow: hidden;
+            background-color: black;
         }
 
-        /* FOND D'ÉCRAN */
         .hero {
-            height: 100vh;
+            height: 100%;
             width: 100%;
+            /* background-size: cover + background-position: center assure que le couple reste au milieu */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('photo-marie.jpeg') center center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
-                        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1920'); /* Ambiance Amalfi/Citrons */
-            background-size: cover;
-            background-position: center;
-            border: 15px solid white; /* Cadre photo polaroid */
-            outline: 2px solid var(--royal-blue);
-            outline-offset: -25px;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* TEXTES */
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(4rem, 10vw, 7rem);
-            color: var(--royal-blue);
-            margin: 0;
-            filter: drop-shadow(2px 2px 0px var(--lemon-yellow));
+            font-size: clamp(3rem, 12vw, 6.5rem);
+            margin: 0 0 10px 0;
+            font-weight: 400;
+            color: #FFFDF5; 
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
+            width: 100%;
         }
 
-        .date-top {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 5px;
-            font-size: 1.2rem;
-            color: var(--royal-blue);
-            margin-bottom: 10px;
-        }
-
-        /* COMPTE À REBOURS */
+        /* TIMER ADAPTATIF */
         .countdown {
             display: flex;
-            gap: 20px;
-            margin: 30px 0;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px 40px;
-            border-radius: 50px;
-            border: 1px solid var(--lemon-yellow);
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: nowrap; /* Garder sur une ligne même sur petit mobile */
         }
 
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
+        .count-box {
+            background: var(--glass);
+            padding: 12px 8px;
+            min-width: 65px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(4px); /* Effet verre moderne */
         }
 
-        .countdown-item span {
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
+        .count-box span {
+            display: block;
             font-size: 1.5rem;
-            color: var(--royal-blue);
+            font-weight: 600;
+            color: white;
         }
 
-        .countdown-item label {
-            font-size: 0.7rem;
+        .count-box label {
+            font-size: 0.55rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--lemon-yellow);
         }
 
-        /* BOUTON */
+        .date-line {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #FFFDF5;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 15px;
+            font-weight: 300;
+        }
+
+        /* BOUTON FULL MOBILE */
         .btn-invite {
-            margin-top: 20px;
-            padding: 15px 40px;
-            background-color: var(--royal-blue);
+            background: linear-gradient(135deg, var(--med-blue) 0%, var(--light-blue) 100%);
             color: white;
             text-decoration: none;
-            font-family: 'Cinzel', serif;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
             letter-spacing: 2px;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            border: 2px solid var(--royal-blue);
-            position: relative;
+            text-transform: uppercase;
+            transition: transform 0.2s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-invite:hover {
-            background-color: transparent;
-            color: var(--royal-blue);
-            box-shadow: 5px 5px 0px var(--lemon-yellow);
+        .btn-invite:active {
+            transform: scale(0.95);
         }
 
-        .lemon-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            display: block;
+        /* AJUSTEMENTS SPÉCIFIQUES PETITS ÉCRANS (iPhone SE, etc) */
+        @media (max-height: 700px) {
+            h1 { font-size: 2.8rem; }
+            .count-box { padding: 8px 5px; min-width: 55px; }
+            .count-box span { font-size: 1.2rem; }
+            .date-line { margin-bottom: 25px; }
         }
 
-        @media (max-width: 600px) {
-            .countdown { gap: 10px; padding: 15px 20px; }
-            h1 { font-size: 3.5rem; }
-            .hero { border: 10px solid white; outline-offset: -15px; }
+        @media (max-width: 360px) {
+            .countdown { gap: 5px; }
+            .count-box { min-width: 50px; }
+            .btn-invite { padding: 15px 30px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <span class="lemon-icon">🍋</span>
-        <p class="date-top">03 . 06 . 2026</p>
         <h1>Yoni & Barbara</h1>
-        
+
         <div class="countdown" id="timer">
-            <div class="countdown-item">
+            <div class="count-box">
                 <span id="days">00</span>
                 <label>Jours</label>
             </div>
-            <div class="countdown-item">
+            <div class="count-box">
                 <span id="hours">00</span>
                 <label>Hrs</label>
             </div>
-            <div class="countdown-item">
+            <div class="count-box">
                 <span id="mins">00</span>
                 <label>Min</label>
             </div>
+            <div class="count-box">
+                <span id="secs">00</span>
+                <label>Sec</label>
+            </div>
         </div>
+
+        <div class="date-line">03 JUIN 2026</div>
 
         <a href="premiere.html" class="btn-invite">Voir l'invitation</a>
     </div>
 
     <script>
-        // Script pour le compte à rebours (Cible le 3 juin 2026)
         const targetDate = new Date("June 3, 2026 16:00:00").getTime();
 
-        const countdown = setInterval(function() {
+        function update() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
+            const diff = targetDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("mins").innerText = minutes;
-
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById("timer").innerHTML = "C'EST LE GRAND JOUR !";
+            if (diff <= 0) {
+                document.getElementById("timer").innerHTML = "<span style='font-size:1.5rem; letter-spacing:2px;'>C'EST AUJOURD'HUI !</span>";
+                return;
             }
-        }, 1000);
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("mins").innerText = m.toString().padStart(2, '0');
+            document.getElementById("secs").innerText = s.toString().padStart(2, '0');
+        }
+
+        setInterval(update, 1000);
+        update();
     </script>
 </body>
 </html>
