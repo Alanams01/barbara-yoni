@@ -63,25 +63,6 @@
             overflow: visible;
         }
 
-        .story-banner {
-            width: calc(100% + 50px);
-            margin-left: -25px;
-            margin-top: -60px;
-            margin-bottom: 30px;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid var(--lemon-yellow);
-        }
-
-        .img-section {
-            width: 100%;
-            margin-top: -30px;
-            margin-bottom: 25px;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
-
         .card::after {
             content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
             border: 1px solid var(--lemon-yellow); pointer-events: none;
@@ -113,27 +94,39 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
-        /* Styles Familles */
-        .family-grid {
+        /* Style Traditionnel Familles - MIS À JOUR COULEUR THÈME */
+        .traditional-announcement {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 15px;
-            margin-bottom: 30px;
+            text-align: left;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--azure-blue); 
+        }
+
+        .family-side p { margin-bottom: 2px; font-weight: 500; }
+
+        .memorial-section {
+            grid-column: 1 / -1;
             text-align: center;
-            font-size: 0.8rem;
-        }
-        .family-side h4 {
-            font-family: var(--font-serif);
+            font-style: italic;
+            margin: 25px 0;
+            padding: 15px 0;
+            border-top: 0.5px solid rgba(30, 78, 140, 0.2);
+            border-bottom: 0.5px solid rgba(30, 78, 140, 0.2);
+            font-size: 0.78rem;
             color: var(--azure-blue);
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            border-bottom: 1px solid var(--lemon-yellow);
-            padding-bottom: 3px;
-            text-transform: uppercase;
         }
-        .family-member { margin-bottom: 2px; color: #444; font-weight: 500; }
-        .grand-parents { font-size: 0.7rem; font-style: italic; margin-top: 8px; color: #777; line-height: 1.2; }
+
+        .announcement-text {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 15px 0 25px;
+            font-size: 0.85rem;
+            color: var(--azure-blue);
+        }
 
         .date-text { 
             font-family: var(--font-serif); font-size: 1.1rem; 
@@ -182,20 +175,14 @@
     <div class="main-wrapper">
         
         <div id="histoire" class="card reveal" style="overflow: hidden;">
-            <img src="haut-seul.png" class="story-banner" alt="Notre Histoire">
+            <img src="haut-seul.png" style="width: calc(100% + 50px); margin-left: -25px; margin-top: -60px; margin-bottom: 30px; border-bottom: 1px solid var(--lemon-yellow);" alt="Notre Histoire">
             <div class="card-content">
                 <h3>Notre Histoire</h3>
                 <div class="divider"></div>
-                <p style="font-family: var(--font-script); font-size: 1.8rem; color: var(--azure-blue); line-height: 1.3; margin-bottom: 15px;">
-                    Tout a commencé à 15 ans…
-                </p>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: #555; padding: 0 10px;">
-                    19 ans plus tard, après avoir grandi, beaucoup ri et partagé mille souvenirs, une chose n’a pas changé : l’envie de continuer l’aventure ensemble.
-                </p>
+                <p style="font-family: var(--font-script); font-size: 1.8rem; color: var(--azure-blue); line-height: 1.3; margin-bottom: 15px;">Tout a commencé à 15 ans…</p>
+                <p style="font-size: 1.1rem; line-height: 1.6; color: #555; padding: 0 10px;">19 ans plus tard, après avoir grandi, beaucoup ri et partagé mille souvenirs, une chose n’a pas changé : l’envie de continuer l’aventure ensemble.</p>
                 <div class="divider"></div>
-                <p style="font-family: var(--font-serif); letter-spacing: 2px; font-weight: 600; color: var(--azure-blue); text-transform: uppercase; font-size: 0.9rem;">
-                    Alors cette fois, c’est officiel :<br>on se dit oui !
-                </p>
+                <p style="font-family: var(--font-serif); letter-spacing: 2px; font-weight: 600; color: var(--azure-blue); text-transform: uppercase; font-size: 0.9rem;">Alors cette fois, c’est officiel :<br>on se dit oui !</p>
             </div>
         </div>
 
@@ -207,7 +194,7 @@
                 <div class="couple-names">Barbara & Yoni</div>
                 <div class="divider"></div>
                 <div class="date-text">Mercredi 3 Juin 2026</div>
-                <p style="font-size: 0.85rem; letter-spacing: 1px; font-weight: 600;">À 15h45 </p>
+                <p style="font-size: 0.85rem; letter-spacing: 1px; font-weight: 600;">À 15H45</p>
                 <div style="margin-top: 25px;">
                     <p style="font-weight: 700; color: var(--azure-blue);">MAIRIE DE SAINT MAURICE</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">55 Rue du Maréchal Leclerc, 94410 Saint-Maurice</p>
@@ -224,40 +211,46 @@
         </div>
 
         <div id="houppa" class="card reveal">
-            <img src="houppa23.png" class="img-section" alt="Houppa">
+            <img src="houppa23.png" style="width: 100%; margin-top: -30px; margin-bottom: 25px; border-radius: 4px;" alt="Houppa">
             <div class="lemon-icon lb">🍋</div>
             <div class="card-content">
                 <h3>Houppa & Soirée</h3>
                 
-                <div class="family-grid">
+                <div class="traditional-announcement">
                     <div class="family-side">
-                        <h4>Famille Bignami</h4>
-                        <div class="family-member">Patrick & Josefa</div>
-                        <div class="family-member">Marina & Dimitri</div>
-                        <div class="grand-parents">
-                            Mme Josefa Perez Esturillo de Haro<br>
-                            <small>En souvenir de Renato, Modesta et José</small>
-                        </div>
+                        <p>Mme Josefa BIGNAMI</p>
+                        <p>M. Patrick BIGNAMI</p>
+                        <p>Mlle Marina BIGNAMI</p>
+                        <p>M. Dimitri BIGNAMI</p>
                     </div>
-                    <div class="family-side">
-                        <h4>Famille Aboucaya</h4>
-                        <div class="family-member">Jacques & Delphine</div>
-                        <div class="family-member">Michael, Shana & Alone</div>
-                        <div class="grand-parents">
-                            M. Paul Touati<br>Mme Suzanne Aboucaya<br>
-                            <small>En souvenir de Rolande et Raoul</small>
-                        </div>
+                    <div class="family-side right-side">
+                        <p>Mme Delphine ABOUCAYA</p>
+                        <p>M. Jacques ABOUCAYA</p>
+                        <p>M. Michael ABOUCAYA</p>
+                        <p>Mlle Shana ABOUCAYA</p>
+                        <p>M. Alone ABOUCAYA</p>
+                    </div>
+
+                    <div class="memorial-section">
+                        <p>En la mémoire de nos chers grands-parents</p>
+                        <p>Josefa PEREZ ESTURILLO DE HARO, José PEREZ MORENTE,</p>
+                        <p>Renato BIGNAMI, Modesta BIGNAMI FRANZONI,</p>
+                        <p>Rolande TOUATI, Raoul ABOUCAYA</p>
+                    </div>
+
+                    <div class="announcement-text">
+                        Ont la joie de vous faire part du mariage de leurs enfants et petits-enfants
                     </div>
                 </div>
 
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Sont heureux de vous convier à la cérémonie de</p>
                 <div class="couple-names">Barbara & Yoni</div>
                 <div class="divider"></div>
                 
                 <div class="date-text">Dimanche 7 Juin 2026</div>
                 <p style="font-size: 0.85rem; font-weight: 600;">À 11H00</p>
                 <div style="margin-top: 25px;">
-                    <p style="font-weight: 700; color: var(--azure-blue);">LA HOUPPA</p>
+                    <p style="font-weight: 700; color: var(--azure-blue); letter-spacing: 1px;">LA HOUPPA</p>
+                    <p style="font-family: var(--font-serif); font-weight: 600; font-size: 1.1rem; color: var(--azure-blue); margin: 5px 0;">LE PAVILLON D'ELSA</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">17 Rue de la Mare Poissy, 95380 Villeron</p>
                 </div>
                 <div class="btn-container">
@@ -271,10 +264,9 @@
             <div class="card-content">
                 <h3>Confirmation</h3>
                 <p style="font-size: 0.85rem; font-style: italic; margin-bottom: 30px; color: var(--azure-blue);">Réponse souhaitée avant le 1er Mai 2026</p>
-                
                 <form id="rsvpForm">
                     <label class="form-label">Nom & Prénom *</label>
-                    <input type="text" name="nom" required placeholder="Ex: David & Sarah Cohen">
+                    <input type="text" name="nom" required placeholder="Ex: Famille Cohen">
                     
                     <label class="form-label">Présent à la Mairie ? *</label>
                     <select name="mairie_presence" id="mairie_pres" onchange="handlePresence('mairie')" required>
@@ -300,7 +292,6 @@
 
                     <label class="form-label">Un message pour les mariés</label>
                     <textarea name="message" rows="3" placeholder="Votre message..."></textarea>
-                    
                     <button type="submit" class="btn-submit">Confirmer ma présence</button>
                 </form>
             </div>
@@ -319,7 +310,6 @@
             const val = document.getElementById(type + '_pres').value;
             const qtyDiv = document.getElementById(type + '_qty');
             const input = document.getElementById(type + '_input');
-
             if (val === 'oui') {
                 qtyDiv.style.display = 'block';
                 if(input.value == 0) input.value = 1; 
@@ -331,4 +321,3 @@
     </script>
 </body>
 </html>
-
