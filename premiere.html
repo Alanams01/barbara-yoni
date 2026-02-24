@@ -60,7 +60,6 @@
             border: 1px solid var(--azure-blue); 
             text-align: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            overflow: visible;
         }
 
         .card::after {
@@ -69,16 +68,11 @@
             opacity: 0.6;
         }
 
-        .mairie-deco {
-            position: absolute; width: 140px; z-index: 10; pointer-events: none;
-        }
+        .mairie-deco { position: absolute; width: 140px; z-index: 10; pointer-events: none; }
         .mairie-top-right { top: -75px; right: -30px; }
         .mairie-bottom-left { bottom: -25px; left: -25px; }
 
-        .lemon-icon {
-            position: absolute; font-size: 2.5rem; z-index: 10;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-        }
+        .lemon-icon { position: absolute; font-size: 2.5rem; z-index: 10; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
         .lb { bottom: -20px; left: -15px; transform: rotate(-15deg); }
 
         h3 { 
@@ -94,13 +88,12 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
-        /* Style Traditionnel Familles - MIS À JOUR COULEUR THÈME */
         .traditional-announcement {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             text-align: left;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             line-height: 1.7;
             margin-bottom: 20px;
             color: var(--azure-blue); 
@@ -108,24 +101,23 @@
 
         .family-side p { margin-bottom: 2px; font-weight: 500; }
 
-        .memorial-section {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-style: italic;
-            margin: 25px 0;
-            padding: 15px 0;
-            border-top: 0.5px solid rgba(30, 78, 140, 0.2);
-            border-bottom: 0.5px solid rgba(30, 78, 140, 0.2);
-            font-size: 0.78rem;
-            color: var(--azure-blue);
-        }
-
         .announcement-text {
             grid-column: 1 / -1;
             text-align: center;
-            margin: 15px 0 25px;
-            font-size: 0.85rem;
+            margin: 25px 0 15px;
+            font-size: 0.88rem;
             color: var(--azure-blue);
+            line-height: 1.6;
+        }
+
+        .memorial-section-final {
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 0.5px solid rgba(30, 78, 140, 0.2);
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--azure-blue);
+            line-height: 1.6;
         }
 
         .date-text { 
@@ -175,7 +167,7 @@
     <div class="main-wrapper">
         
         <div id="histoire" class="card reveal" style="overflow: hidden;">
-            <img src="haut-seul.png" style="width: calc(100% + 50px); margin-left: -25px; margin-top: -60px; margin-bottom: 30px; border-bottom: 1px solid var(--lemon-yellow);" alt="Notre Histoire">
+            <img src="haut-seul.png" style="width: calc(100% + 50px); margin-left: -25px; margin-top: -60px; margin-bottom: 30px; border-bottom: 1px solid var(--lemon-yellow);" alt="">
             <div class="card-content">
                 <h3>Notre Histoire</h3>
                 <div class="divider"></div>
@@ -220,26 +212,14 @@
                     <div class="family-side">
                         <p>Mme Josefa BIGNAMI</p>
                         <p>M. Patrick BIGNAMI</p>
-                        <p>Mlle Marina BIGNAMI</p>
-                        <p>M. Dimitri BIGNAMI</p>
                     </div>
-                    <div class="family-side right-side">
+                    <div class="family-side" style="text-align: right;">
                         <p>Mme Delphine ABOUCAYA</p>
                         <p>M. Jacques ABOUCAYA</p>
-                        <p>M. Michael ABOUCAYA</p>
-                        <p>Mlle Shana ABOUCAYA</p>
-                        <p>M. Alone ABOUCAYA</p>
-                    </div>
-
-                    <div class="memorial-section">
-                        <p>En la mémoire de nos chers grands-parents</p>
-                        <p>Josefa PEREZ ESTURILLO DE HARO, José PEREZ MORENTE,</p>
-                        <p>Renato BIGNAMI, Modesta BIGNAMI FRANZONI,</p>
-                        <p>Rolande TOUATI, Raoul ABOUCAYA</p>
                     </div>
 
                     <div class="announcement-text">
-                        Ont la joie de vous faire part du mariage de leurs enfants et petits-enfants
+                        Ont la joie de vous faire part du mariage de leurs enfants, petits-enfants et frère et sœur
                     </div>
                 </div>
 
@@ -253,9 +233,15 @@
                     <p style="font-family: var(--font-serif); font-weight: 600; font-size: 1.1rem; color: var(--azure-blue); margin: 5px 0;">LE PAVILLON D'ELSA</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">17 Rue de la Mare Poissy, 95380 Villeron</p>
                 </div>
+
                 <div class="btn-container">
                     <a href="https://waze.com/ul?q=17%20Rue%20de%20la%20Mare%20Poissy%20Villeron" target="_blank" class="btn-action">WAZE</a>
                     <a href="#" class="btn-action">CALENDRIER</a>
+                </div>
+
+                <div class="memorial-section-final">
+                    En la mémoire de nos chers grands-parents<br>
+                    José PEREZ MORENTE, Renato BIGNAMI, Modesta BIGNAMI FRANZONI, Rolande TOUATI, Raoul ABOUCAYA.
                 </div>
             </div>
         </div>
