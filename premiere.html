@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yoni & Barbara | 2026</title>
+    <title>Barbara & Yoni | 2026</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -91,9 +91,7 @@
         .mairie-deco {
             position: absolute; width: 140px; z-index: 10; pointer-events: none;
         }
-        
-        /* ICI : Position remontée à -65px */
-        .mairie-top-right { top: -65px; right: -30px; }
+        .mairie-top-right { top: -75px; right: -30px; }
         .mairie-bottom-left { bottom: -25px; left: -25px; }
 
         .lemon-icon {
@@ -115,6 +113,28 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
+        /* Styles Familles */
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .family-side h4 {
+            font-family: var(--font-serif);
+            color: var(--azure-blue);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--lemon-yellow);
+            padding-bottom: 3px;
+            text-transform: uppercase;
+        }
+        .family-member { margin-bottom: 2px; color: #444; font-weight: 500; }
+        .grand-parents { font-size: 0.7rem; font-style: italic; margin-top: 8px; color: #777; line-height: 1.2; }
+
         .date-text { 
             font-family: var(--font-serif); font-size: 1.1rem; 
             font-weight: 700; letter-spacing: 2px; color: var(--azure-blue);
@@ -133,13 +153,6 @@
         input, select, textarea { 
             width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd; 
             background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; margin-bottom: 20px; outline: none;
-        }
-
-        input[type="number"] {
-            -moz-appearance: textfield;
-        }
-        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-            -webkit-appearance: none; margin: 0;
         }
 
         .btn-submit { 
@@ -167,6 +180,7 @@
     </nav>
 
     <div class="main-wrapper">
+        
         <div id="histoire" class="card reveal" style="overflow: hidden;">
             <img src="haut-seul.png" class="story-banner" alt="Notre Histoire">
             <div class="card-content">
@@ -190,18 +204,21 @@
             <img src="bas-gauche1.png" class="mairie-deco mairie-bottom-left" alt="">
             <div class="card-content">
                 <h3>Cérémonie Civile</h3>
-                <div class="couple-names">Yoni & Barbara</div>
+                <div class="couple-names">Barbara & Yoni</div>
                 <div class="divider"></div>
                 <div class="date-text">Mercredi 3 Juin 2026</div>
                 <p style="font-size: 0.85rem; letter-spacing: 1px; font-weight: 600;">À 16H00</p>
                 <div style="margin-top: 25px;">
                     <p style="font-weight: 700; color: var(--azure-blue);">MAIRIE DE SAINT MAURICE</p>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Place Charles de Gaulle, 94410 Saint-Maurice</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">55 Rue du Maréchal Leclerc, 94410 Saint-Maurice</p>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.85rem; font-style: italic;">Suivi d'un vin d'honneur à Limeil-Brévannes</p>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f9f9f9;">
+                    <p style="font-size: 0.85rem; font-style: italic;">Suivi d'un vin d'honneur à 18h00</p>
+                    <p style="font-weight: 600; font-size: 0.9rem; color: var(--azure-blue);">3 Allée Blaise Cendrars, 94450 Limeil-Brévannes</p>
+                </div>
                 <div class="btn-container">
-                    <a href="https://waze.com/ul?q=Mairie%20de%20Saint%20Maurice" target="_blank" class="btn-action">WAZE</a>
-                    <a href="#" class="btn-action">CALENDRIER</a>
+                    <a href="https://waze.com/ul?ll=48.818849,2.453308&navigate=yes" target="_blank" class="btn-action">MAIRIE (WAZE)</a>
+                    <a href="https://waze.com/ul?ll=48.746685,2.486241&navigate=yes" target="_blank" class="btn-action">COCKTAIL (WAZE)</a>
                 </div>
             </div>
         </div>
@@ -211,20 +228,42 @@
             <div class="lemon-icon lb">🍋</div>
             <div class="card-content">
                 <h3>Houppa & Soirée</h3>
-                <div class="couple-names">Yoni & Barbara</div>
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Sont heureux de vous convier à la cérémonie :</p>
+                
+                <div class="family-grid">
+                    <div class="family-side">
+                        <h4>Famille Bignami</h4>
+                        <div class="family-member">Patrick & Josefa</div>
+                        <div class="family-member">Marina & Dimitri</div>
+                        <div class="grand-parents">
+                            Mme Josefa Perez Esturillo de Haro<br>
+                            <small>En souvenir de Renato, Modesta et José</small>
+                        </div>
+                    </div>
+                    <div class="family-side">
+                        <h4>Famille Aboucaya</h4>
+                        <div class="family-member">Jacques & Delphine</div>
+                        <div class="family-member">Michael, Shana & Alone</div>
+                        <div class="grand-parents">
+                            M. Paul Touati<br>Mme Suzanne Aboucaya<br>
+                            <small>En souvenir de Rolande et Raoul</small>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Sont heureux de vous convier à la cérémonie de</p>
+                <div class="couple-names">Barbara & Yoni</div>
                 <div class="divider"></div>
+                
                 <div class="date-text">Dimanche 7 Juin 2026</div>
                 <p style="font-size: 0.85rem; font-weight: 600;">À 11H00</p>
                 <div style="margin-top: 25px;">
-                    <p style="font-weight: 700; color: var(--azure-blue);">LE PAVILLON D'ELSA</p>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Quai de la Marne, 75019 Paris</p>
+                    <p style="font-weight: 700; color: var(--azure-blue);">LA HOUPPA</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">17 Rue de la Mare Poissy, 95380 Villeron</p>
                 </div>
                 <div class="btn-container">
-                    <a href="https://waze.com/ul?q=Pavillon%20d'Elsa%20Paris" target="_blank" class="btn-action">WAZE</a>
+                    <a href="https://waze.com/ul?q=17%20Rue%20de%20la%20Mare%20Poissy%20Villeron" target="_blank" class="btn-action">WAZE</a>
                     <a href="#" class="btn-action">CALENDRIER</a>
                 </div>
-                <p style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.8rem; font-style: italic;">Une pensée affectueuse pour nos grands-parents présents dans nos cœurs.</p>
             </div>
         </div>
 
@@ -268,7 +307,7 @@
         </div>
     </div>
 
-    <footer>YONI & BARBARA — 03 . 06 . 2026</footer>
+    <footer>BARBARA & YONI — 03 . 06 . 2026</footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
