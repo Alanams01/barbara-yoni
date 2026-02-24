@@ -10,10 +10,9 @@
 
     <style>
         :root {
-            --bg-color: #FFFEFA; 
-            --gold-theme: #BFA466; 
-            --azure-blue: #0077B6; /* Bleu Azur */
-            --lemon-yellow: #FFD700; /* Jaune Citron */
+            --azure-blue: #1E4E8C;
+            --lemon-yellow: #FFD700;
+            --bg-white: #FFFEFA;
             --font-script: 'Great Vibes', cursive;
             --font-serif: 'Cinzel', serif;
             --font-main: 'Cormorant Garamond', serif;
@@ -21,103 +20,111 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+
         body {
-            background-color: var(--bg-color);
+            /* FOND CARREAUX MAJOLIQUE (Identique à l'index) */
+            background-color: #f0f0f0;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #fff 24%, var(--azure-blue) 25%, var(--azure-blue) 28%, #fff 29%, #fff 36%, var(--azure-blue) 36%, var(--azure-blue) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0 150%, #fff 24%, var(--azure-blue) 25%, var(--azure-blue) 28%, #fff 29%, #fff 36%, var(--azure-blue) 36%, var(--azure-blue) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50% 100%, var(--azure-blue) 10%, #fff 11%, #fff 23%, var(--azure-blue) 24%, var(--azure-blue) 30%, #fff 31%, #fff 43%, var(--azure-blue) 44%, var(--azure-blue) 50%, #fff 51%, #fff 63%, var(--azure-blue) 64%, var(--azure-blue) 71%, transparent 71%, transparent);
+            background-size: 100px 50px;
             color: #444;
             font-family: var(--font-main);
             overflow-x: hidden;
         }
 
+        /* NAVIGATION DOLCE VITA */
         nav {
             position: sticky; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 254, 250, 0.98);
+            background: rgba(255, 255, 255, 0.96);
             border-bottom: 2px solid var(--lemon-yellow);
             padding: 15px 0;
             display: flex; justify-content: center; gap: 20px;
+            backdrop-filter: blur(5px);
         }
         nav a {
             text-decoration: none; color: var(--azure-blue);
             font-family: 'Montserrat', sans-serif; text-transform: uppercase; 
-            letter-spacing: 1.5px; font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 1.5px; font-size: 0.65rem; font-weight: 700;
         }
 
         .main-wrapper {
             max-width: 600px;
-            margin: 0 auto; padding: 40px 10px 100px;
-            display: flex; flex-direction: column; gap: 50px; 
+            margin: 0 auto; padding: 40px 15px 100px;
+            display: flex; flex-direction: column; gap: 40px; 
         }
 
+        /* CARDS STYLE INVITATION (Inspiré Eliah & Dov) */
         .card {
             position: relative; 
-            padding: 70px 25px; 
+            padding: 60px 25px; 
             background-color: #fff;
             border: 1px solid var(--azure-blue); 
             text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
+        /* Double bordure dorée interne */
         .card::after {
             content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
             border: 1px solid var(--lemon-yellow); pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
-        .side-deco {
-            position: absolute; top: 0; bottom: 0; width: 60px;
-            background-size: contain; background-repeat: repeat-y;
-            opacity: 0.8; z-index: 1;
+        /* DÉCORATION CITRONS FLOTTANTS */
+        .lemon-icon {
+            position: absolute; font-size: 2.5rem; z-index: 10;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
         }
-        .deco-left { left: 5px; background-image: url('citrons-gauche.png'); }
-        .deco-right { right: 5px; background-image: url('citrons-droite.png'); }
-
-        .card-content { position: relative; z-index: 5; }
+        .lt { top: -20px; right: -15px; transform: rotate(15deg); }
+        .lb { bottom: -20px; left: -15px; transform: rotate(-15deg); }
 
         h3 { 
-            font-family: var(--font-serif); font-size: 1.3rem; 
+            font-family: var(--font-serif); font-size: 1.2rem; 
             letter-spacing: 4px; margin-bottom: 25px; color: var(--azure-blue);
             text-transform: uppercase;
         }
 
         .couple-names {
             font-family: var(--font-script) !important; 
-            font-size: 3.5rem; color: var(--azure-blue); margin: 15px 0;
+            font-size: 3.2rem; color: var(--azure-blue); margin: 10px 0;
         }
 
+        .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
+
+        /* ÉVÉNEMENTS */
         .date-text { 
             font-family: var(--font-serif); font-size: 1.1rem; 
-            font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-            margin-bottom: 5px; color: var(--azure-blue);
+            font-weight: 700; letter-spacing: 2px; color: var(--azure-blue);
         }
-
-        .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 30px auto; }
-
-        .parents-grid { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; 
-            margin: 30px 0; padding-bottom: 25px; border-bottom: 1px solid #eee;
-        }
-        .parent-col { font-family: var(--font-serif); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--azure-blue); }
 
         .btn-action {
             display: inline-block; margin: 15px 8px;
-            color: var(--azure-blue); border-bottom: 1px solid var(--lemon-yellow);
-            text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            font-weight: 600; font-family: 'Montserrat', sans-serif;
+            color: var(--azure-blue); border-bottom: 1.5px solid var(--lemon-yellow);
+            text-decoration: none; font-size: 0.7rem; text-transform: uppercase; 
+            letter-spacing: 2px; font-weight: 700; font-family: 'Montserrat', sans-serif;
         }
 
+        /* FORMULAIRE RSVP */
         form { text-align: left; margin-top: 20px; }
-        .form-label { font-family: var(--font-serif); font-size: 0.75rem; color: var(--azure-blue); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: block;}
+        .form-label { font-family: var(--font-serif); font-size: 0.7rem; color: var(--azure-blue); text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: block;}
         input, select, textarea { 
             width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd; 
-            background: transparent; font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 25px; outline: none;
+            background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; margin-bottom: 20px; outline: none;
         }
         .btn-submit { 
-            background: var(--azure-blue); color: #fff; border: none; 
-            padding: 18px; width: 100%; font-family: var(--font-serif); 
-            text-transform: uppercase; letter-spacing: 3px; cursor: pointer; font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+            background: linear-gradient(135deg, #1A365D, var(--azure-blue)); 
+            color: #fff; border: none; padding: 18px; width: 100%; 
+            font-family: var(--font-serif); text-transform: uppercase;
+            letter-spacing: 3px; cursor: pointer; font-weight: 600;
+            box-shadow: 0 5px 15px rgba(30, 78, 140, 0.3);
         }
 
-        .hidden-qty { display: none; }
+        .hidden-qty { display: none; margin-bottom: 20px; padding-left: 10px; border-left: 2px solid var(--lemon-yellow); }
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 40px 0; color: #fff; font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -131,52 +138,44 @@
     <div class="main-wrapper">
         
         <div id="mairie" class="card reveal">
-            <div class="side-deco deco-left"></div>
-            <div class="side-deco deco-right"></div>
+            <div class="lemon-icon lt">🍋</div>
             <div class="card-content">
-                <i class="fa-solid fa-landmark" style="color: var(--lemon-yellow); font-size: 1.6rem; margin-bottom: 20px;"></i>
                 <h3>Cérémonie Civile</h3>
                 <div class="couple-names">Yoni & Barbara</div>
                 <div class="divider"></div>
                 <div class="date-text">Mercredi 3 Juin 2026</div>
-                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">À 16H00</p>
+                <p style="font-size: 0.85rem; letter-spacing: 1px; font-weight: 600;">À 16H00</p>
                 <div style="margin-top: 25px;">
-                    <p style="font-weight: 600; letter-spacing: 1px; color: var(--azure-blue);">MAIRIE DE SAINT MAURICE</p>
+                    <p style="font-weight: 700; color: var(--azure-blue);">MAIRIE DE SAINT MAURICE</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">Place Charles de Gaulle, 94410 Saint-Maurice</p>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.85rem; font-style: italic; color: var(--azure-blue);">Suivi d'un vin d'honneur à Limeil-Brévannes</p>
-                <div style="margin-top: 25px;">
+                <p style="margin-top: 15px; font-size: 0.85rem; font-style: italic;">Suivi d'un vin d'honneur à Limeil-Brévannes</p>
+                <div class="btn-container">
                     <a href="https://waze.com/ul?q=Mairie%20de%20Saint%20Maurice" target="_blank" class="btn-action">WAZE</a>
-                    <a href="#" class="btn-action">BLOQUER LA DATE</a>
+                    <a href="#" class="btn-action">CALENDRIER</a>
                 </div>
             </div>
         </div>
 
         <div id="houppa" class="card reveal">
-            <div class="side-deco deco-left"></div>
-            <div class="side-deco deco-right"></div>
+            <div class="lemon-icon lb">🍋</div>
             <div class="card-content">
-                <img src="hebreu.png" alt="Mazal Tov" style="width: 160px; margin-bottom: 15px; opacity: 0.9; filter: brightness(0) saturate(100%) invert(32%) sepia(85%) saturate(1472%) hue-rotate(180deg);">
+                <img src="hebreu.png" alt="Mazal Tov" style="width: 140px; margin-bottom: 15px; filter: brightness(0) saturate(100%) invert(26%) sepia(48%) saturate(1832%) hue-rotate(193deg);">
                 <h3>Houppa & Soirée</h3>
-                <div class="parents-grid">
-                    <div class="parent-col">Famille<br>Aboucaya</div>
-                    <div class="parent-col">Famille<br>Bignami</div>
-                </div>
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px;">Ont la joie de vous faire part du mariage de leurs enfants</p>
                 <div class="couple-names">Yoni & Barbara</div>
-                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin: 15px 0;">Et seront honorés de votre présence à la cérémonie religieuse :</p>
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Sont heureux de vous convier à la cérémonie :</p>
                 <div class="divider"></div>
                 <div class="date-text">Dimanche 7 Juin 2026</div>
-                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">À 11H00</p>
+                <p style="font-size: 0.85rem; font-weight: 600;">À 11H00</p>
                 <div style="margin-top: 25px;">
-                    <p style="font-weight: 600; letter-spacing: 1px; color: var(--azure-blue);">LE PAVILLON D'ELSA</p>
+                    <p style="font-weight: 700; color: var(--azure-blue);">LE PAVILLON D'ELSA</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">Quai de la Marne, 75019 Paris</p>
                 </div>
-                <div style="margin-top: 25px;">
+                <div class="btn-container">
                     <a href="https://waze.com/ul?q=Pavillon%20d'Elsa%20Paris" target="_blank" class="btn-action">WAZE</a>
-                    <a href="#" class="btn-action">BLOQUER LA DATE</a>
+                    <a href="#" class="btn-action">CALENDRIER</a>
                 </div>
-                <p style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 25px; font-size: 0.85rem; font-style: italic; color: var(--azure-blue);">"Pensée affectueuse pour nos grands-parents qui nous accompagnent dans nos cœurs."</p>
+                <p style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.8rem; font-style: italic;">Une pensée affectueuse pour nos grands-parents présents dans nos cœurs.</p>
             </div>
         </div>
 
@@ -187,7 +186,7 @@
                 
                 <form id="rsvpForm">
                     <label class="form-label">Nom & Prénom *</label>
-                    <input type="text" name="nom" placeholder="Ex: Famille Aboucaya" required>
+                    <input type="text" name="nom" required placeholder="Ex: Famille Aboucaya">
                     
                     <label class="form-label">Présent à la Mairie ? *</label>
                     <select name="mairie_presence" id="mairie_pres" onchange="toggleQty('mairie')" required>
@@ -195,14 +194,13 @@
                         <option value="oui">Oui, avec joie</option>
                         <option value="non">Hélas, non</option>
                     </select>
-
                     <div id="mairie_qty" class="hidden-qty">
                         <label class="form-label">Nombre de personnes (Mairie)</label>
                         <select name="mairie_nb">
                             <option value="1">1 Personne</option>
                             <option value="2">2 Personnes</option>
                             <option value="3">3 Personnes</option>
-                            <option value="4">4 Personnes</option>
+                            <option value="4">Plus</option>
                         </select>
                     </div>
 
@@ -212,14 +210,13 @@
                         <option value="oui">Oui, avec joie</option>
                         <option value="non">Hélas, non</option>
                     </select>
-
                     <div id="houppa_qty" class="hidden-qty">
                         <label class="form-label">Nombre de personnes (Houppa)</label>
                         <select name="houppa_nb">
                             <option value="1">1 Personne</option>
                             <option value="2">2 Personnes</option>
                             <option value="3">3 Personnes</option>
-                            <option value="4">4 Personnes</option>
+                            <option value="4">Plus</option>
                         </select>
                     </div>
 
@@ -231,6 +228,8 @@
             </div>
         </div>
     </div>
+
+    <footer>YONI & BARBARA — 03 . 06 . 2026</footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
