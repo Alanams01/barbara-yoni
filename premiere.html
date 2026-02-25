@@ -49,7 +49,7 @@
 
         .main-wrapper {
             max-width: 600px;
-            margin: 0 auto; padding: 40px 15px 100px;
+            margin: 0 auto; padding: 40px 15px 60px;
             display: flex; flex-direction: column; gap: 40px; 
         }
 
@@ -86,7 +86,6 @@
             font-size: 3.2rem; color: var(--azure-blue); margin: 10px 0 5px;
         }
 
-        /* Nouveau style pour les noms en hébreu */
         .hebrew-names {
             font-size: 1.8rem;
             color: var(--azure-blue);
@@ -168,7 +167,32 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        footer { text-align: center; padding: 40px 0; color: #fff; font-family: var(--font-serif); font-size: 0.7rem; letter-spacing: 2px; }
+        /* BOUTON MUSIQUE */
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: var(--azure-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--lemon-yellow);
+        }
+        .music-anim {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -179,6 +203,13 @@
         <a href="#houppa">Houppa</a>
         <a href="#confirmation">Réponses</a>
     </nav>
+
+    <div id="music-control" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-music"></i>
+    </div>
+    <audio id="bg-music" loop>
+        <source src="musique23.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="main-wrapper">
         
@@ -220,7 +251,7 @@
 
         <div id="houppa" class="card reveal">
             <div class="card-content">
-                <img src="hebreu23.png" style="width: 95%; max-width: 400px; margin: 0 auto 30px; display: block;" alt="Verset Hébreu">
+                <img src="hebreu23.png" style="width: 95%; max-width: 400px; margin: 0 auto 30px; display: block;" alt="">
                 
                 <img src="houppa23.png" style="width: 100%; margin-bottom: 25px; border-radius: 4px;" alt="Houppa">
                 <div class="lemon-icon lb">🍋</div>
@@ -305,8 +336,6 @@
         </div>
     </div>
 
-    <footer>BARBARA & YONI — 07 . 06 . 2026</footer>
-
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
@@ -323,6 +352,24 @@
             } else {
                 qtyDiv.style.display = 'none';
                 input.value = 0; 
+            }
+        }
+
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const icon = document.getElementById('music-icon');
+            const btn = document.getElementById('music-control');
+            
+            if (music.paused) {
+                music.play();
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-pause');
+                btn.classList.add('music-anim');
+            } else {
+                music.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-music');
+                btn.classList.remove('music-anim');
             }
         }
     </script>
