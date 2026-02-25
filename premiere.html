@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Barbara & Yoni | 2026</title>
+    <title>Yoni & Barbara | 2026</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -68,6 +68,7 @@
             opacity: 0.6;
         }
 
+        /* DÉCORATIONS MAIRIE REPLACÉES */
         .mairie-deco { position: absolute; width: 140px; z-index: 10; pointer-events: none; }
         .mairie-top-right { top: -75px; right: -30px; }
         .mairie-bottom-left { bottom: -25px; left: -25px; }
@@ -88,27 +89,17 @@
 
         .divider { width: 50px; height: 1px; background: var(--lemon-yellow); margin: 25px auto; }
 
-        /* Mise en page épurée : Uniquement Famille X et Famille Y */
         .traditional-announcement {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
             margin-bottom: 20px;
             color: var(--azure-blue); 
         }
 
-        .family-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 5px;
-        }
-
-        .family-side {
-            text-align: left;
-            font-family: var(--font-serif);
-        }
-
-        .family-side.right {
-            text-align: right;
-        }
+        .family-side { font-family: var(--font-serif); }
+        .family-side.right { text-align: right; }
 
         .family-title {
             font-size: 1.05rem;
@@ -119,6 +110,7 @@
         }
 
         .announcement-text {
+            grid-column: 1 / -1;
             text-align: center;
             margin: 25px 0 20px;
             font-size: 0.9rem;
@@ -200,7 +192,7 @@
             <img src="bas-gauche1.png" class="mairie-deco mairie-bottom-left" alt="">
             <div class="card-content">
                 <h3>Cérémonie Civile</h3>
-                <div class="couple-names">Barbara & Yoni</div>
+                <div class="couple-names">Yoni & Barbara</div>
                 <div class="divider"></div>
                 <div class="date-text">Mercredi 3 Juin 2026</div>
                 <p style="font-size: 0.85rem; letter-spacing: 1px; font-weight: 600;">À 15H45</p>
@@ -209,7 +201,7 @@
                     <p style="font-size: 0.9rem; opacity: 0.8;">55 Rue du Maréchal Leclerc, 94410 Saint-Maurice</p>
                 </div>
                 <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f9f9f9;">
-                    <p style="font-size: 0.85rem; font-style: italic;">Suivi d'un vin d'honneur à 18h00</p>
+                    <p style="font-size: 0.85rem; font-style: italic;">Suivie d'un vin d'honneur</p>
                     <p style="font-weight: 600; font-size: 0.9rem; color: var(--azure-blue);">3 Allée Blaise Cendrars, 94450 Limeil-Brévannes</p>
                 </div>
                 <div class="btn-container">
@@ -220,13 +212,16 @@
         </div>
 
         <div id="houppa" class="card reveal">
-            <img src="houppa23.png" style="width: 100%; margin-top: -30px; margin-bottom: 25px; border-radius: 4px;" alt="Houppa">
-            <div class="lemon-icon lb">🍋</div>
             <div class="card-content">
+                <img src="hebreu23.png" style="width: 95%; max-width: 400px; margin: 0 auto 30px; display: block;" alt="Verset Hébreu">
+                
+                <img src="houppa23.png" style="width: 100%; margin-bottom: 25px; border-radius: 4px;" alt="Houppa">
+                <div class="lemon-icon lb">🍋</div>
+                
                 <h3>Houppa & Soirée</h3>
                 
                 <div class="traditional-announcement">
-                    <div class="family-header">
+                    <div class="family-header" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="family-side">
                             <span class="family-title">Famille Bignami</span>
                         </div>
@@ -236,11 +231,11 @@
                     </div>
 
                     <div class="announcement-text">
-                        Ont la joie de vous faire part du mariage de leurs enfants, petits-enfants et frère et sœur
+                        Ont la joie de vous convier au mariage de leurs enfants, petits-enfants, frère et sœur
                     </div>
                 </div>
 
-                <div class="couple-names">Barbara & Yoni</div>
+                <div class="couple-names">Yoni & Barbara</div>
                 <div class="divider"></div>
                 
                 <div class="date-text">Dimanche 7 Juin 2026</div>
@@ -301,7 +296,7 @@
         </div>
     </div>
 
-    <footer>BARBARA & YONI — 03 . 06 . 2026</footer>
+    <footer>YONI & BARBARA — 07 . 06 . 2026</footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
