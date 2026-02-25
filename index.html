@@ -15,27 +15,33 @@
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
+            margin: 0; padding: 0; height: 100%; width: 100%;
             font-family: 'Montserrat', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             overflow: hidden;
-            /* ON NE TOUCHE PAS AU FOND MAJOLIQUE COMME DEMANDÉ */
             background-color: #f0f0f0;
             background-image: 
                 radial-gradient(circle at 100% 150%, var(--white) 24%, var(--azure-blue) 25%, var(--azure-blue) 28%, var(--white) 29%, var(--white) 36%, var(--azure-blue) 36%, var(--azure-blue) 40%, transparent 40%, transparent),
                 radial-gradient(circle at 0 150%, var(--white) 24%, var(--azure-blue) 25%, var(--azure-blue) 28%, var(--white) 29%, var(--white) 36%, var(--azure-blue) 36%, var(--azure-blue) 40%, transparent 40%, transparent),
-                radial-gradient(circle at 50% 100%, var(--azure-blue) 10%, var(--white) 11%, var(--white) 23%, var(--azure-blue) 24%, var(--azure-blue) 30%, var(--white) 31%, var(--white) 43%, var(--azure-blue) 44%, var(--azure-blue) 50%, var(--white) 51%, var(--white) 63%, var(--azure-blue) 64%, var(--azure-blue) 71%, transparent 71%, transparent),
-                radial-gradient(circle at 100% 50%, var(--azure-blue) 5%, var(--white) 6%, var(--white) 15%, var(--azure-blue) 16%, var(--azure-blue) 20%, var(--white) 21%, var(--white) 30%, var(--azure-blue) 31%, var(--azure-blue) 35%, var(--white) 36%, var(--white) 45%, var(--azure-blue) 46%, var(--azure-blue) 49%, transparent 49%, transparent),
-                radial-gradient(circle at 0 50%, var(--azure-blue) 5%, var(--white) 6%, var(--white) 15%, var(--azure-blue) 16%, var(--azure-blue) 20%, var(--white) 21%, var(--white) 30%, var(--azure-blue) 31%, var(--azure-blue) 35%, var(--white) 36%, var(--white) 45%, var(--azure-blue) 46%, var(--azure-blue) 49%, transparent 49%, transparent);
+                radial-gradient(circle at 50% 100%, var(--azure-blue) 10%, var(--white) 11%, var(--white) 23%, var(--azure-blue) 24%, var(--azure-blue) 30%, var(--white) 31%, var(--white) 43%, var(--azure-blue) 44%, var(--azure-blue) 50%, var(--white) 51%, var(--white) 63%, var(--azure-blue) 64%, var(--azure-blue) 71%, transparent 71%, transparent);
             background-size: 100px 50px;
         }
 
-        /* L'ARCHE CENTRALE */
+        /* PLUIE DE CITRONS */
+        #lemon-rain-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+        .falling-lemon {
+            position: absolute; top: -60px; font-size: 2rem;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(115vh) rotate(480deg); }
+        }
+
+        /* ARCHE */
         .arche-container {
             position: relative;
             background: var(--white);
@@ -54,7 +60,6 @@
             border: 2px solid var(--azure-blue);
         }
 
-        /* DOUBLE BORDURE INTERNE DORÉE */
         .arche-container::after {
             content: '';
             position: absolute;
@@ -64,24 +69,6 @@
             pointer-events: none;
         }
 
-        /* EMOJIS CITRON FLOTTANTS */
-        .lemon-emoji {
-            position: absolute;
-            font-size: 3rem;
-            z-index: 20;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-            animation: float 3s ease-in-out infinite;
-        }
-        .l1 { top: -20px; right: -20px; animation-delay: 0s; }
-        .l2 { bottom: 40px; left: -30px; animation-delay: 0.5s; font-size: 3.5rem; }
-        .l3 { top: 30%; right: -25px; animation-delay: 1s; font-size: 2rem; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(10deg); }
-        }
-
-        /* TYPOGRAPHIE NOMS */
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.2rem, 11vw, 4.5rem);
@@ -96,44 +83,9 @@
             font-size: 0.75rem;
             letter-spacing: 4px;
             color: var(--azure-blue);
-            margin-top: 20px;
+            margin: 20px 0 10px;
             text-transform: uppercase;
             font-weight: 700;
-        }
-
-        /* COMPTEUR STYLE PRESTIGE */
-        .timer-grid {
-            display: flex;
-            gap: 12px;
-            margin: 25px 0 35px;
-        }
-
-        .timer-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 60px;
-        }
-
-        .timer-item span {
-            font-size: 2rem;
-            font-weight: 300;
-            color: var(--azure-blue);
-            font-family: 'Montserrat', sans-serif;
-            border-bottom: 2px solid var(--lemon-yellow);
-            width: 100%;
-            text-align: center;
-            padding-bottom: 5px;
-        }
-
-        .timer-item label {
-            font-size: 0.55rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--azure-blue);
-            font-weight: 600;
-            margin-top: 8px;
-            opacity: 0.8;
         }
 
         .date-display {
@@ -142,10 +94,9 @@
             letter-spacing: 5px;
             color: var(--azure-blue);
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        /* BOUTON REFAIT */
         .btn-enter {
             background: linear-gradient(135deg, #1A365D 0%, var(--azure-blue) 100%);
             color: white;
@@ -161,59 +112,81 @@
             border: 1px solid rgba(255,255,255,0.2);
             position: relative;
             z-index: 30;
+            margin-bottom: 40px;
         }
 
-        .btn-enter:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(30, 78, 140, 0.6);
-            letter-spacing: 4px;
+        .timer-wrapper {
+            display: flex;
+            gap: 15px;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 25px;
+        }
+        .timer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 50px;
+        }
+        .timer-val {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--azure-blue);
+            border-bottom: 2px solid var(--lemon-yellow);
+            width: 100%;
+            text-align: center;
+            padding-bottom: 4px;
+        }
+        .timer-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--azure-blue);
+            font-weight: 600;
+            margin-top: 8px;
+            opacity: 0.7;
         }
 
         @media (max-width: 480px) {
             .arche-container { height: 78vh; width: 85%; }
             h1 { font-size: 3rem; }
-            .timer-item span { font-size: 1.6rem; }
-            .lemon-emoji { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <div id="lemon-rain-container"></div>
+
     <div class="arche-container">
-        <div class="lemon-emoji l1">🍋</div>
-        <div class="lemon-emoji l2">🍋</div>
-        <div class="lemon-emoji l3">🍋</div>
-
-        <h1>Yoni & Barbara</h1>
-
+        <h1>Barbara & Yoni </h1>
         <div class="save-the-date">Save the Date</div>
-
-        <div class="timer-grid" id="timer">
-            <div class="timer-item">
-                <span id="days">00</span>
-                <label>Jours</label>
-            </div>
-            <div class="timer-item">
-                <span id="hours">00</span>
-                <label>Heures</label>
-            </div>
-            <div class="timer-item">
-                <span id="mins">00</span>
-                <label>Min</label>
-            </div>
-            <div class="timer-item">
-                <span id="secs">00</span>
-                <label>Sec</label>
-            </div>
-        </div>
-
-        <div class="date-display">03 . 06 . 2026</div>
+        <div class="date-display">07 . 06 . 2026</div>
 
         <a href="premiere.html" class="btn-enter">Voir l'invitation</a>
+
+        <div class="timer-wrapper" id="timer">
+            <div class="timer-box">
+                <span class="timer-val" id="days">00</span>
+                <span class="timer-label">Jours</span>
+            </div>
+            <div class="timer-box">
+                <span class="timer-val" id="hours">00</span>
+                <span class="timer-label">Heures</span>
+            </div>
+            <div class="timer-box">
+                <span class="timer-val" id="mins">00</span>
+                <span class="timer-label">Min</span>
+            </div>
+            <div class="timer-box">
+                <span class="timer-val" id="secs">00</span>
+                <span class="timer-label">Sec</span>
+            </div>
+        </div>
     </div>
 
     <script>
-        const target = new Date("June 3, 2026 16:00:00").getTime();
+        // Cible mise à jour au 7 juin 2026
+        const target = new Date("June 7, 2026 00:00:00").getTime();
+        
         function update() {
             const now = new Date().getTime();
             const diff = target - now;
@@ -225,6 +198,21 @@
         }
         setInterval(update, 1000);
         update();
+
+        function createLemon() {
+            const container = document.getElementById('lemon-rain-container');
+            const lemon = document.createElement('div');
+            lemon.classList.add('falling-lemon');
+            lemon.innerHTML = '🍋';
+            lemon.style.left = Math.random() * 100 + 'vw';
+            const duration = Math.random() * 2 + 2;
+            lemon.style.animationDuration = duration + 's';
+            lemon.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
+            lemon.style.opacity = Math.random() * 0.4 + 0.3;
+            container.appendChild(lemon);
+            setTimeout(() => { lemon.remove(); }, duration * 1000);
+        }
+        setInterval(createLemon, 800);
     </script>
 </body>
 </html>
